@@ -8,20 +8,18 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */
+     * **/
 public function up()
 {
     Schema::create('reviews', function (Blueprint $table) {
         $table->id();
         $table->string('title');
-        $table->text('excerpt');
-        $table->string('image')->nullable();
-        $table->string('link')->nullable();
-        $table->string('category')->nullable();
+        $table->string('image');
+        $table->enum('category', ['Book', 'Movie', 'TV Series']);
+        $table->string('excerpt', 1200);
         $table->timestamps();
     });
 }
-
     /**
      * Reverse the migrations.
      */

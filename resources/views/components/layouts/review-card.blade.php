@@ -3,7 +3,7 @@
     <h2 class="text-white text-xl font-semibold">{{ $review->title }}</h2>
   </div>
 
-  <div class="flex px-6 py-4 gap-6 items-start">
+  <div class="flex px-6 py-4 gap-4 items-start">
     <div class="w-32 h-48 flex-shrink-0">
       <img src="{{ asset($review->image) }}" alt="Book Cover" class="w-full h-full object-cover rounded">
     </div>
@@ -11,7 +11,9 @@
       <p class="text-gray-700 text-base leading-relaxed text-justify">
         {{ $review->excerpt }}
       </p>
-      <a href="{{ url($review->link) }}" class="text-primary font-semibold hover:underline mt-2 inline-block">[Continue Reading...]</a>
+    <a href="{{ url($review->link) }}" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">
+  Continue Reading
+</a>
     </div>
   </div>
 
