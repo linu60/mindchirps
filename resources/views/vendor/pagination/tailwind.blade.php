@@ -1,7 +1,7 @@
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}" class="flex justify-center mt-6 text-sm">
-        {{-- Desktop View --}}
-        <div class="hidden sm:flex sm:items-center sm:justify-center">
+        {{-- Desktop + Tablet + Mobile View --}}
+        <div class="flex items-center justify-center">
             <div class="flex rounded-lg overflow-hidden border border-gray-300">
                 {{-- Previous Page --}}
                 @if ($paginator->onFirstPage())

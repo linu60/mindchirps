@@ -16,7 +16,7 @@ public function up()
         $table->string('title');
         $table->string('image');
         $table->enum('category', ['Book', 'Movie', 'TV Series']);
-        $table->string('excerpt', 1200);
+        $table->string('excerpt', 1200); // values: 'book', 'movie', 'series'
         $table->timestamps();
     });
 }

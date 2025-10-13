@@ -29,6 +29,8 @@
                 <option value="TV Series">TV Series</option>
             </select>
 
+            <input type="text" name="subcategory" placeholder="Subcategory (optional)" class="w-full px-4 py-2 border rounded" />
+
             <textarea name="excerpt" rows="8" placeholder="Write your review (max 1200 words)" required class="w-full px-4 py-2 border rounded"></textarea>
             <div class="text-xs text-gray-500 mt-1">Maximum 1200 words allowed.</div>
 

@@ -1,18 +1,34 @@
 @extends('components.layouts.app')
 
 @section('content')
-<div class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded shadow">
-    <div class="bg-[#1e525b] px-6 py-4 rounded-t">
-        <h2 class="text-white text-2xl font-bold">{{ $review->title }}</h2>
+<div class="max-w-3xl mx-auto  bg-white rounded-2xl shadow-lg overflow-hidden">
+    <!-- Header Bar -->
+    <div class="bg-[#1e525b] px-6 py-4">
+        <h2 class="text-sky-100 text-2xl font-extrabold">
+            {{ $review->title }}
+        </h2>
     </div>
-    <div class="flex flex-col items-center py-6">
-        <img src="{{ asset('storage/' . $review->image) }}" alt="Book Cover" class="w-64 h-96 object-cover rounded mb-6 shadow">
-        <div class="w-full">
-            <h3 class="text-xl font-semibold mb-4">{{ $review->category }}</h3>
-            <p class="text-gray-800 text-base leading-relaxed text-justify whitespace-pre-line">
-                {{ $review->excerpt }}
-            </p>
+
+    <!-- Main Content -->
+    <div class="flex flex-col items-center bg-gray-50 px-6 py-10">
+        <!-- Book Image -->
+        <div class="bg-white p-6 rounded shadow-md">
+            <img
+                src="{{ asset('storage/' . $review->image) }}"
+                alt="Book Cover"
+                class="w-60 h-80 object-cover rounded shadow-lg"
+            >
         </div>
+
+        <!-- Text Section -->
+      <div class="mt-8 text-center w-full">
+    <h3 class="text-xl font-semibold text-[#1e525b] mb-4">
+        {{ $review->category }}
+    </h3>
+    <p class="text-[16px] leading-[24px] text-justify text-[#212529] font-sans">
+        {!! nl2br(e($review->excerpt)) !!}
+    </p>
+</div>
     </div>
 </div>
 @endsection

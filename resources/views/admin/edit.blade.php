@@ -9,6 +9,7 @@
         </ul>
     </div>
 @endif
+
 @section('content')
 <div class="max-w-3xl mx-auto mt-10">
     <div class="bg-white p-8 rounded shadow">
@@ -31,6 +32,11 @@
                     <option value="Movie" {{ old('category', $review->category) == 'Movie' ? 'selected' : '' }}>Movie Review</option>
                     <option value="TV Series" {{ old('category', $review->category) == 'TV Series' ? 'selected' : '' }}>TV Series Review</option>
                 </select>
+            </div>
+
+            <div>
+                <label class="block font-semibold mb-1">Subcategory</label>
+                <input type="text" name="subcategory" value="{{ old('subcategory', $review->subcategory) }}" class="w-full border rounded px-4 py-2">
             </div>
 
             <div>

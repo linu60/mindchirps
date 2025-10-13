@@ -7,10 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     //
-protected $fillable = [
-    'title',
-    'image',
-    'category',
-    'excerpt',
-];
+protected $fillable = ['title', 'excerpt', 'image', 'category', 'subcategory'];
 }

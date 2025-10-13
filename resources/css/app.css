@@ -4,3 +4,17 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+html, body {
+  overflow-x: hidden; /* Prevent sideways scroll */
+}
+
+body {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 2560px) {
+  .sidebar {
+    right: 2rem; /* keep some gap from the edge */
+  }
+}

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Review;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Str;
 class ReviewController extends Controller
 {
     /**
@@ -133,4 +133,16 @@ class ReviewController extends Controller
         $review = Review::findOrFail($id);
         return view('admin.show', compact('review'));
     }
+    public function filterBySubcategory($category, $subcategory)
+{
+    $categoryName = Str::title(str_replace('-', ' ', $category));
+    $subcategoryName = Str::title(str_replace('-', ' ', $subcategory));
+
+ $reviews = Review::where('category', 'like', "%{$categoryName}%")
+                 ->where('subcategory', 'like', "%{$subcategoryName}%")
+                 ->paginate(10); // or any number of items per page
+
+    return view('admin.index', compact('reviews'));
+}
+
 }

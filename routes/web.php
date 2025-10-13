@@ -22,3 +22,7 @@ Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])->name('r
 Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 Route::get('/reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+
+
+Route::get('/reviews/{category}/{subcategory}', [ReviewController::class, 'filterBySubcategory'])
+    ->name('reviews.subcategory');

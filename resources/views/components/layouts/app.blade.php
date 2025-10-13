@@ -21,22 +21,23 @@
   @include('components.layouts.navbar')
 
   {{-- === Main Page Wrapper === --}}
-  <div class="flex justify-start w-full">
+{{-- === Main Page Wrapper === --}}
+<div class="flex justify-end w-full">
+  <div class="w-full max-w-[1200px] flex flex-col lg:flex-row gap-6 px-4 py-8 lg:pr-6">
 
-<div class="max-w-[1200px] w-full flex flex-col lg:flex-row gap-6 px-4 py-8 lg:translate-x-[30%]">
+    {{-- Main Content --}}
+    <main class="w-full lg:w-[75%] space-y-6 lg:mr-2">
+      @yield('content')
+    </main>
 
-      {{-- Main Content (Left Section) --}}
-      <main class="w-full lg:w-[70%] order-1 space-y-6">
-        @yield('content')
-      </main>
+    {{-- Sidebar --}}
+    <aside class="w-full lg:w-[30%] xl:w-[25%] space-y-6 lg:relative lg:top-0 lg:self-start">
+      @include('components.layouts.sidebar')
+    </aside>
 
-      {{-- Sidebar (Right Section) --}}
-      <aside class="w-full lg:w-[30%] order-2 space-y-6 lg:sticky lg:top-8">
-        @include('components.layouts.sidebar')
-      </aside>
-
-    </div>
   </div>
+</div>
+
 
   {{-- Footer --}}
   @include('components.layouts.footer')
