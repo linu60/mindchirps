@@ -10,9 +10,12 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-       Schema::table('reviews', function (Blueprint $table) {
-        $table->string('type')->default('book');
+{
+    Schema::create('subcategories', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('category_id')->constrained()->onDelete('cascade'); // links to categories
+        $table->string('name'); // e.g. "Self Help", "Biopic"
+        $table->timestamps();
     });
 
     }
@@ -22,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('subcategories');
     }
 };

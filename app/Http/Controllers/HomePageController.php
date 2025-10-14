@@ -3,17 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Models\Category;
+use App\Models\Subcategory;
 use Illuminate\Routing\Controller;
 
 class HomePageController extends Controller
 {
+    public function index()
+    {
+        // Fetch latest reviews
+        $reviews = Review::latest()->paginate(5);
 
-public function index()
-{
-    // Use paginate() instead of take() + get()
-    $reviews = \App\Models\Review::latest()->paginate(5);
+        // Fetch categories and subcategories
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
 
-    return view('home-page', compact('reviews'));
-}
-
+        // Pass all to the view
+        return view('home-page', compact('reviews', 'categories', 'subcategories'));
+    }
 }

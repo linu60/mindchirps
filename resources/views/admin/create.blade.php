@@ -42,23 +42,28 @@
                     file:text-white hover:file:opacity-90 cursor-pointer text-gray-200" required>
             </div>
 
-            {{-- Category --}}
+            {{-- Category Dropdown --}}
             <div>
-                <label class="block text-sm font-semibold text-teal-100 mb-2">Category</label>
-                <select name="category"
-                    class="w-full px-4 py-3 border border-gray-500 bg-[#2c6a74] text-white rounded-xl focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none transition duration-200" required>
-                    <option value="" class="text-gray-400 bg-[#1e525b]">Select Category</option>
-                    <option value="Book" class="text-teal-100">Book</option>
-                    <option value="Movie" class="text-teal-100">Movie</option>
-                    <option value="TV Series" class="text-teal-100">TV Series</option>
+                <label for="category_id" class="block text-sm font-medium text-teal-100 mb-2">Category</label>
+                <select name="category_id" id="category_id"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-white text-gray-800" required>
+                    <option value="">Select a category</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
-            {{-- Subcategory --}}
+            {{-- Subcategory Dropdown --}}
             <div>
-                <label class="block text-sm font-semibold text-teal-100 mb-2">Subcategory (optional)</label>
-                <input type="text" name="subcategory" placeholder="E.g., Sci-Fi, Romance, Drama"
-                    class="w-full px-4 py-3 border border-gray-500 bg-[#2c6a74] text-white placeholder-gray-300 rounded-xl focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none transition duration-200">
+                <label for="subcategory_id" class="block text-sm font-medium text-teal-100 mb-2">Subcategory</label>
+                <select name="subcategory_id" id="subcategory_id"
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm bg-white text-gray-800" required>
+                    <option value="">Select a subcategory</option>
+                    @foreach($subcategories as $subcategory)
+                        <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             {{-- Review Text --}}

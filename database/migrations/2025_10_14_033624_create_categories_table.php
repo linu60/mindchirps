@@ -9,19 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up()
+   public function up()
 {
-    Schema::table('reviews', function (Blueprint $table) {
-        $table->string('subcategory')->nullable();
+    Schema::create('categories', function (Blueprint $table) {
+        $table->id();
+        $table->string('name')->unique(); // e.g. "Book Reviews", "Movie Reviews"
+        $table->timestamps();
     });
-}
+
+    }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categories');
     }
 };
