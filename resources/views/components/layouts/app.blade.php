@@ -31,9 +31,11 @@
     </main>
 
     {{-- Sidebar --}}
-    <aside class="w-full lg:w-[30%] xl:w-[25%] space-y-6 lg:relative lg:top-0 lg:self-start">
-      @include('components.layouts.sidebar')
-    </aside>
+      @if (!isset($noSidebar) || !$noSidebar)
+        <aside class="w-full lg:w-[30%] xl:w-[25%] space-y-6 lg:relative lg:top-0 lg:self-start">
+          @include('components.layouts.sidebar')
+        </aside>
+      @endif
 
   </div>
 </div>

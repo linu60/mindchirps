@@ -9,6 +9,7 @@
   {{-- Categories Section --}}
 <livewire:categories-sidebar />
 
+
   {{-- Tags Section --}}
 <livewire:tags-sidebar />
 

@@ -7,24 +7,19 @@ use App\Models\Review;
 class ReviewList extends Component
 {
     public $reviews = [];
-    public $category = null;
     public $subcategory = null;
 
-    protected $listeners = ['filterReviews'];
+    protected $listeners = ['filterReviewsBySubcategory'];
 
     public function mount()
     {
-        $this->reviews = Review::latest()->take(10)->get();
+        $this->reviews = Review::latest()->get();
     }
 
-    public function filterReviews($category, $subcategory)
+    public function filterReviewsBySubcategory($subcategory)
     {
-        $this->category = $category;
         $this->subcategory = $subcategory;
-
-        $this->reviews = Review::where('category', 'like', "%{$category}%")
-                               ->where('subcategory', 'like', "%{$subcategory}%")
-                               ->get();
+        $this->reviews = Review::where('subcategory', $subcategory)->latest()->get();
     }
 
     public function render()

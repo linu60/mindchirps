@@ -24,5 +24,6 @@ Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('
 Route::get('/reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
 
 
-Route::get('/reviews/{category}/{subcategory}', [ReviewController::class, 'filterBySubcategory'])
-    ->name('reviews.subcategory');
+
+
+Route::get('/reviews/category/{category}/{subcategory}', [ReviewController::class, 'filter'])->name('reviews.byCategory');

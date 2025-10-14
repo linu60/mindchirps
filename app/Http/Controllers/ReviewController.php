@@ -133,16 +133,18 @@ class ReviewController extends Controller
         $review = Review::findOrFail($id);
         return view('admin.show', compact('review'));
     }
-    public function filterBySubcategory($category, $subcategory)
+
+public function filter($category, $subcategory)
 {
-    $categoryName = Str::title(str_replace('-', ' ', $category));
-    $subcategoryName = Str::title(str_replace('-', ' ', $subcategory));
+    $category = Str::title(str_replace('-', ' ', $category));
+    $subcategory = Str::title(str_replace('-', ' ', $subcategory));
 
- $reviews = Review::where('category', 'like', "%{$categoryName}%")
-                 ->where('subcategory', 'like', "%{$subcategoryName}%")
-                 ->paginate(10); // or any number of items per page
+    $reviews = Review::where('category', $category)
+                     ->where('subcategory', $subcategory)
+                     ->latest()
+                     ->paginate(10);
 
-    return view('admin.index', compact('reviews'));
+    return view('admin.index', compact('reviews', 'category', 'subcategory'));
 }
 
 }
