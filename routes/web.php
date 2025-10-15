@@ -31,9 +31,8 @@ Route::get('/admin/manage', function () {
 Route::get('/reviews/category/{category}/{subcategory}', [ReviewController::class, 'filter'])->name('reviews.byCategory');
 Route::get('/reviews/{categorySlug}/{subcategorySlug}', [ReviewController::class, 'filter'])
     ->name('reviews.filter');
-    
-Route::get('/{categorySlug?}/{subcategorySlug?}', [HomeController::class, 'index'])
-    ->where('categorySlug', '.*')
-    ->where('subcategorySlug', '.*')
+
+
+Route::get('/{categorySlug}/{subcategorySlug}', [HomeController::class, 'index'])
     ->name('home');
 

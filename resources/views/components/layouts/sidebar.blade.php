@@ -7,7 +7,7 @@
 <livewire:about-mind-chirps />
 
   {{-- Categories Section --}}
-<livewire:categories-sidebar />
+<livewire:sidebar-categories />
 
 
   {{-- Tags Section --}}

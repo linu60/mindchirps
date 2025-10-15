@@ -42,23 +42,18 @@
 
                 <!-- Footer -->
                 <div class="px-3 py-2 bg-gray-100 flex justify-end items-center border-t border-gray-200 gap-2">
-                    @if ($review->type === 'book')
-                        <a href="{{ route('reviews.show', $review->id) }}" class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">
-                            Book Review
-                        </a>
-                    @elseif ($review->type === 'movie')
-                        <a href="{{ route('reviews.show', $review->id) }}" class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">
-                            Movie Review
-                        </a>
-                    @elseif ($review->type === 'series')
-                        <a href="{{ route('reviews.show', $review->id) }}" class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">
-                            Series Review
-                        </a>
-                    @else
-                        <a href="{{ route('reviews.show', $review->id) }}" class="bg-gray-500 text-white text-sm px-4 py-2 rounded hover:bg-gray-600">
-                            {{ $review->category }}
-                        </a>
-                    @endif
+                   @php
+    $label = match($review->type) {
+        'book' => 'Book Reviews',
+        'movie' => 'Movie Reviews',
+        'series' => 'Series Reviews',
+        default => Str::headline($review->category) . ' Reviews',
+    };
+@endphp
+
+<a href="{{ route('reviews.show', $review->id) }}" class="bg-gray-500 text-white text-sm px-2 py-1 rounded hover:bg-gray-600">
+    {{ $label }}
+</a>
                 </div>
             </div>
         @endforeach

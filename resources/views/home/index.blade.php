@@ -9,7 +9,7 @@
     <div class="space-y-6">
 
         {{-- Optional: Sidebar --}}
-        
+
 
         {{-- Review Cards --}}
         @foreach($reviews as $review)
@@ -74,4 +74,4 @@
         {{ $reviews->links() }}
     </div>
 </div>
-@endsection
+@endsection   
